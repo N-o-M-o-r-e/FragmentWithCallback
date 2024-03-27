@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FragmentPart2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="str_cat_00">ic cat 00</string>
+    <string name="str_cat_01">ic cat 01</string>
+    <string name="str_cat_02">ic cat 02</string>
+    <string name="str_cat_03">ic cat 03</string>
+    <string name="str_cat_04">ic cat 04</string>
+
+</resources>
