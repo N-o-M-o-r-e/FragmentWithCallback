@@ -6,4 +6,6 @@ import java.util.ArrayList;
 
 public class Storage {
     public ArrayList<ItemModel> listItemStorage;
+
+    public ItemModel itemModel;
 }

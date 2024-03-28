@@ -10,7 +10,7 @@
         android:id="@+id/tvIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test"
+        android:text=""
         android:gravity="center"
         android:textSize="40sp"
         android:layout_gravity="center"
@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:padding="32dp"
         android:layout_gravity="center"
-        />
+        tools:ignore="ContentDescription" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -15,25 +15,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainViewModel extends ViewModel {
-    private ItemModel item;
-
     private ArrayList<ItemModel> itemList;
-
-    public ItemModel getItem() {
-        return item;
-    }
-
-    public void setItem(ItemModel item) {
-        this.item = item;
-    }
-
-    public ArrayList<ItemModel> getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(ArrayList<ItemModel> itemList) {
-        this.itemList = itemList;
-    }
 
     public void readStoryFile(AssetManager assetManager) {
         itemList = new ArrayList<>();
@@ -51,8 +33,8 @@ public class MainViewModel extends ViewModel {
             e.printStackTrace();
         }
         Log.e("AAAAAAAAA", "readStoryFile: "+ itemList );
-        MyApplication.getINSTANCE().getStorage().listItemStorage = itemList;
 
+        MyApplication.getINSTANCE().getStorage().listItemStorage = itemList;
     }
 
     private Bitmap getBitmapFromAsset(AssetManager assetManager, String filePath) {

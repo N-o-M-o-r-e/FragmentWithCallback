@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 public class ItemModel {
     Bitmap resourceItem;
     String nameItem;
+    boolean isSelect = false;
 
     public ItemModel(Bitmap resourceItem, String nameItem) {
         this.resourceItem = resourceItem;
@@ -25,5 +26,13 @@ public class ItemModel {
 
     public void setNameItem(String nameItem) {
         this.nameItem = nameItem;
+    }
+
+    public boolean getIsSelect() {
+        return isSelect;
+    }
+
+    public void setIsSelect(boolean isSelect) {
+        this.isSelect = isSelect;
     }
 }
