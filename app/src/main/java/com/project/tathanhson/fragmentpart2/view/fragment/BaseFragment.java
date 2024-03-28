@@ -42,6 +42,7 @@ public abstract class BaseFragment<V extends ViewBinding> extends Fragment imple
         this.context = context;
     }
 
+
     @Override
     public final View onCreateView(@Nullable LayoutInflater inflater, @Nullable
     ViewGroup container, @Nullable Bundle savedInstanceState) {

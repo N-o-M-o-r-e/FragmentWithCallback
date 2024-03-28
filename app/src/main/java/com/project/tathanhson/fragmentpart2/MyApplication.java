@@ -14,11 +14,15 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         INSTANCE = this;
-        storage = new Storage();
+        storage = new Storage(null, null);
 
     }
 
     public Storage getStorage() {
         return storage;
+    }
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
     }
 }

@@ -6,5 +6,6 @@
     <string name="str_cat_02">ic cat 02</string>
     <string name="str_cat_03">ic cat 03</string>
     <string name="str_cat_04">ic cat 04</string>
+    <string name="delete">Delete</string>
 
 </resources>

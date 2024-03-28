@@ -5,9 +5,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.project.tathanhson.fragmentpart2.MyApplication;
+import com.project.tathanhson.fragmentpart2.Storage;
 import com.project.tathanhson.fragmentpart2.model.ItemModel;
 
 import java.io.IOException;
@@ -15,26 +19,39 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainViewModel extends ViewModel {
-    private ArrayList<ItemModel> itemList;
+    private MutableLiveData<ItemModel> mItemModel = new MutableLiveData<>(null);
+    private MutableLiveData<ArrayList<ItemModel>> mListItem = new MutableLiveData<>(null);
+    public MutableLiveData<ItemModel> getmItemModel() {
+        return mItemModel;
+    }
+    public void setmItemModel(ItemModel mItemModel) {
+        this.mItemModel.setValue(mItemModel);
+    }
+    public MutableLiveData<ArrayList<ItemModel>> getmListItem() {
+        return mListItem;
+    }
+    public void setmListItem(ArrayList<ItemModel> mListItem) {
+        this.mListItem.setValue(mListItem);
+    }
 
-    public void readStoryFile(AssetManager assetManager) {
-        itemList = new ArrayList<>();
+
+    public void readStoryFile(@Nullable AssetManager assetManager) {
+
+        ArrayList<ItemModel> listItem = new ArrayList<>();
         try {
             String[] listFileName = assetManager.list("photo/");
             for (String fileName : listFileName) {
                 String imagePath = "photo" + "/" + fileName;
                 Bitmap bitmap = getBitmapFromAsset(assetManager, imagePath);
                 String name = fileName.replace(".png", "");
-                ItemModel item = new ItemModel(bitmap, name);
-                itemList.add(item);
-
+                ItemModel itemModel = new ItemModel(bitmap, name);
+                listItem.add(itemModel);
             }
+//            mListItem.setValue(listItem);
+            setmListItem(listItem);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.e("AAAAAAAAA", "readStoryFile: "+ itemList );
-
-        MyApplication.getINSTANCE().getStorage().listItemStorage = itemList;
     }
 
     private Bitmap getBitmapFromAsset(AssetManager assetManager, String filePath) {
@@ -56,4 +73,6 @@ public class MainViewModel extends ViewModel {
         }
         return bitmap;
     }
+
+
 }

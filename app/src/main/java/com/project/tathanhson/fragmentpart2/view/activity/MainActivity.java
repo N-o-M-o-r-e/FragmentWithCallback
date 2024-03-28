@@ -1,7 +1,6 @@
 package com.project.tathanhson.fragmentpart2.view.activity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -26,22 +25,16 @@ public class MainActivity extends AppCompatActivity implements OnMainCallBack {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         initView();
     }
 
     private void initView() {
-        getDataViewModel();
         frgMain = new MainFragment();
         frgMain.setCallBack(this);
         frgDetail = new DetailFragment();
         frgDetail.setCallBack(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frgMain).commit();
-    }
-
-    private void getDataViewModel() {
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        viewModel.readStoryFile(getAssets());
-
     }
 
     @Override
@@ -65,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements OnMainCallBack {
     private void showMainFragment(Object data) {
         frgMain = new MainFragment();
         frgMain.setCallBack(this);
+        frgMain.setData(data);
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frgMain).addToBackStack(null).commit();
     }
 }

@@ -7,5 +7,11 @@ import java.util.ArrayList;
 public class Storage {
     public ArrayList<ItemModel> listItemStorage;
 
-    public ItemModel itemModel;
+    public ItemModel itemSelected;
+
+
+    public Storage(ArrayList<ItemModel> listItemStorage, ItemModel itemSelected) {
+        this.listItemStorage = listItemStorage;
+        this.itemSelected = itemSelected;
+    }
 }
